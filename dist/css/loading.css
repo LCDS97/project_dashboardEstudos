@@ -33,7 +33,6 @@
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    background: #042104;
     animation: animateBg 0.8s linear infinite;
 }
 @keyframes animateBg {
