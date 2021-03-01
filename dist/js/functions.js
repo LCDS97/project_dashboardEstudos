@@ -7,6 +7,7 @@ $(function() {
     $("#wrapper").delay(3500).fadeIn("slow")
 });
 
+// Função do relógio
 function clock(){
     let hour = document.getElementById('hour');
     let minute = document.getElementById('minute');
@@ -36,3 +37,9 @@ function clock(){
 
 var interval = setInterval(clock, 1000);
 
+// Função do navigation bar
+    const navigation = document.querySelector('.navigation');
+    document.querySelector('.toggle').onclick = function(){
+        this.classList.toggle('active');
+        navigation.classList.toggle('active');
+    }
