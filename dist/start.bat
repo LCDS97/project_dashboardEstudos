@@ -1,1 +1,1 @@
-start file:///C:/Users/Lucas/Desktop/Projetos/Dashboard-Estudos/dist/index.html
+start http://localhost/Dashboard-Estudos/dist/
