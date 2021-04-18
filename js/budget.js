@@ -35,7 +35,114 @@ class UI {
     }
     // Mostrar balanço
     showBalance(){
-        console.log(`Eu estou pegando o 'this' keyword`);
+        const expense = this.totalExpense();
+        const total = parseInt(this.budgetAmount.textContent) - expense;
+        this.balanceAmount.textContent = total;
+        if(total < 0){
+            this.balance.classList.remove("showGreen", "showBlack");
+            this.balance.classList.add("showRed");
+        }
+        else if(total > 0){
+            this.balance.classList.remove("showRed", "showBlack");
+            this.balance.classList.add("showGreen");
+        }
+        else if(total === 0){
+            this.balance.classList.remove("showRed", "showGreen");
+            this.balance.classList.add("showBlack");
+        }
+    }
+    // Submit do formulário de Despesas
+    submitExpenseForm(){
+        const expenseValue = this.expenseInput.value;
+        const amountValue = this.amountInput.value;
+        if(expenseValue === "" || amountValue === "" || amountValue < 0){
+            this.expenseFeedback.classList.add("showItem");
+            this.expenseFeedback.innerHTML = `<p> Valores não podem ser vazio ou negativo</p>`
+            const selfFeedback = this;
+            setTimeout(function(){
+                selfFeedback.expenseFeedback.classList.remove("showItem")
+            },4000);
+        }
+        else{
+            let amount = parseInt(amountValue);
+            this.expenseInput.value = "";
+            this.amountInput.value = "";
+
+            let expense = {
+                id: this.itemID,
+                title: expenseValue,
+                amount: amount,
+            }
+            this.itemID++;
+            this.itemList.push(expense);
+            this.addExpense(expense);
+            // Mostrar balanço
+            this.showBalance();
+        }
+    }
+    // Adicionando despesa
+    addExpense(expense){
+        const div = document.createElement("div");
+        div.classList.add("expense");
+        div.innerHTML = `
+        <div class="expense-item">
+        <h6 class="expense-title">${expense.title}</h6>
+        <h5 class="expense-amount list-item">${expense.amount}</h5>
+            <a href="#" class="edit-icon" data-id="${expense.id}">
+                <i class="icone-editar">Editar</i>
+            </a>
+            <a href="#" class="delete-icon" data-id="${expense.id}">
+                <i class="icone-deletar">Deletar</i>
+            </a>
+        
+    </div>
+        `;
+        this.expenseList.appendChild(div);
+    }
+    // Total das despesas
+    totalExpense(){
+        let total = 0;
+        if(this.itemList.length > 0){
+            total = this.itemList.reduce(function(accumulate,current){
+                accumulate += current.amount
+                return accumulate;
+            },0)
+        }
+        this.expenseAmount.textContent = total;
+        return total;
+    }
+    // Editar Despesa
+    editExpense(element){
+        let id = parseInt(element.dataset.id);
+        let parent = element.parentElement.parentElement;
+        // Removendo do DOM 
+        this.expenseList.removeChild(parent);
+        // Removendo da DOM da lista
+        let expense = this.itemList.filter(function(item){
+            return item.id === id;
+        })
+        // Mostrando valor
+        this.expenseInput.value = expense[0].title;
+        this.amountInput.value = expense[0].amount;
+        // Removendo da lista
+        let tempList = this.itemList.filter(function(item){
+            return item.id != id;
+        })
+        this.itemList = tempList;
+        this.showBalance()
+    }
+    // Deletar Despesa
+    deleteExpense(element){
+        let id = parseInt(element.dataset.id);
+        let parent = element.parentElement.parentElement;
+        // Removendo do DOM 
+        this.expenseList.removeChild(parent);
+        // Removendo da lista
+        let tempList = this.itemList.filter(function(item){
+            return item.id != id;
+        });
+        this.itemList = tempList;
+        this.showBalance();
     }
   }
   
@@ -47,19 +154,25 @@ class UI {
       // Nova instância do UI Class
       const ui = new UI()
   
-      // Submit do fórmulario do Formulário de Despesas
+      // Submit do fórmulario de Ganho
       budgetForm.addEventListener('submit', function(event){
         event.preventDefault();
         ui.submitBudgetForm();
         
       })
-      // Submit do fórmulario do Formulário de uma despesa
+      // Submit do Formulário de Despesas
       expenseForm.addEventListener('submit', function(event){
         event.preventDefault();
+        ui.submitExpenseForm();
       })
-      // Click do formulário de despesa
+      // Click do formulário de Despesas
       expenseList.addEventListener('click', function(event){
-  
+        if(event.target.parentElement.classList.contains("edit-icon")){
+            ui.editExpense(event.target.parentElement)
+        }
+        else if(event.target.parentElement.classList.contains("delete-icon")){
+            ui.deleteExpense(event.target.parentElement)
+        }
       })
   }
   

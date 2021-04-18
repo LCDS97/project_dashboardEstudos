@@ -6,6 +6,11 @@ body {
     background-color: rgb(66, 66, 66);
 }
 
+.container-main{
+    justify-content: space-evenly;
+}
+
+
 .budget-mainTitle{
     color: var(--mainWhite)
 }
@@ -17,4 +22,34 @@ body {
 
 .showItem {
     display: block;
+}
+
+.info-title {
+  font-size: 1.5rem;
+}
+.budget {
+  font-size: 1.6rem;
+  color: var(--mainGreen);
+}
+.expense {
+  font-size: 1.6rem;
+  color: var(--mainRed);
+}
+.balance {
+  font-size: 1.6rem;
+}
+.budget-icon,
+.expense-icon,
+.balance-icon {
+  font-size: 2.5rem;
+  color: var(--mainBlue);
+}
+.showRed {
+  color: var(--mainRed);
+}
+.showGreen {
+  color: var(--mainGreen);
+}
+.showBlack {
+  color: var(--mainDark);
 }
