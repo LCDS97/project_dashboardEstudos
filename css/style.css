@@ -1,5 +1,13 @@
 @import url('https://fonts.googleapis.com/css2?family=Poppins&display=swap');
 
+:root{
+    --mainBackground: #08001b;
+    --navBackground: #2a0d757c;
+    --mainWhite: #fff;
+
+
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -74,7 +82,7 @@ body {
     right: 95px;
     width: 100%;
     height: 2px;
-    background: #fff;
+    background: var(--mainWhite);
     transition: 0.5s;
 }
 
@@ -85,7 +93,7 @@ body {
     right: 95px;
     width: 100%;
     height: 2px;
-    background: #fff;
+    background: var(--mainWhite);
     transition: 0.5s;
 }
 
@@ -116,7 +124,7 @@ body {
     height: 50px;
     font-size: 18px;
     transition: 1s;
-    color: #fff;
+    color: var(--mainWhite);
 }
 
 .navigation ul li a:hover {
