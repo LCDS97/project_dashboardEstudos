@@ -11,7 +11,7 @@ class UI {
       this.expenseForm = document.getElementById("expense-form");
       this.expenseInput = document.getElementById("expense-input");
       this.amountInput = document.getElementById("amount-input");
-      this.expenseList = document.getElementById("expense-list");
+      this.expenseList = document.getElementById("expenses");
       this.itemList = [];
       this.itemID = 0;
     }
@@ -82,20 +82,22 @@ class UI {
     }
     // Adicionando despesa
     addExpense(expense){
-        const div = document.createElement("div");
+        const div = document.createElement("tr");
         div.classList.add("expense");
         div.innerHTML = `
-        <div class="expense-item">
-        <h6 class="expense-title">${expense.title}</h6>
-        <h5 class="expense-amount list-item">${expense.amount}</h5>
+        <tr class="expense-item">
+        <td class="expense-title">${expense.title}</td>
+        <td class="expense-amount list-item">${expense.amount}</td>
+            <td>
             <a href="#" class="edit-icon" data-id="${expense.id}">
                 <i class="icone-editar">Editar</i>
             </a>
             <a href="#" class="delete-icon" data-id="${expense.id}">
                 <i class="icone-deletar">Deletar</i>
             </a>
+            </td>
         
-    </div>
+    </tr>
         `;
         this.expenseList.appendChild(div);
     }

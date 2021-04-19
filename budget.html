@@ -10,52 +10,57 @@
 </head>
 
 <body>
-    <div class="container-main">
-        <div class="container-title">
+    <main>
+        <section class="title">
             <!-- titulo -->
             <h3 class="budget-mainTitle">App de Despesas</h3>
-            <!-- budget feedback -->
-            <div class="budget-feedback">Feedback de Despesa</div>
-        </div>
-        <div class="container-budget">
+        </section>
+        <section class="info">
             <!--- budget form -->
-            <form id="budget-form" class="budget-form">
-                <h5>Por favor coloque seu ganho</h5>
-                <div class="form-group">
-                    <input type="number" class="budget-input" id="budget-input" />
+            <div class="container">
+                <form id="budget-form" class="budget-form">
+                    <h5>Por favor coloque seu ganho</h5>
+                    <!-- budget feedback -->
+                    <div class="budget-feedback">Feedback de Despesa</div>
+                    <div class="form-group">
+                        <input type="number" class="budget-input" id="budget-input" />
+                    </div>
+                    <!--submit button -->
+                    <button type="submit" class="budget-submit" id="budget-submit">
+                        Calcular
+                    </button>
+                </form>
+            </div>
+            <div class="container">
+
+                <!-- app info -->
+                <div class="appInfo-budget">
+                    <h6 class="info-title">Carteira</h6>
+                    <span class="budget-icon"><i class="colocar-icone-dps-money-bill"></i></span>
+                    <h4 class="budget" id="budget">
+                        <span>$ </span><span id="budget-amount">0</span>
+                    </h4>
                 </div>
-                <!--submit button -->
-                <button type="submit" class="budget-submit" id="budget-submit">
-                    Calcular
-                </button>
-            </form>
-        </div>
-        <div class="container-appInfo">
-            <!-- app info -->
-            <div class="appInfo-budget">
-                <h6 class="info-title">Carteira</h6>
-                <span class="budget-icon"><i class="colocar-icone-dps-money-bill"></i></span>
-                <h4 class="budget" id="budget">
-                    <span>$ </span><span id="budget-amount">0</span>
-                </h4>
+                <div class="appInfo-expenses">
+                    <h6 class="info-title">Despesas</h6>
+                    <span class="expense-icon"><i class="colocar-icone-dps-credit-card"></i></span>
+                    <h4 class="expense" id="expense"><span>$ </span><span id="expense-amount">0</span></h4>
+                </div>
+                <div class="appInfo-balance">
+                    <h6 class="info-title">Balanço</h6>
+                    <span class="balance-icon"><i class="colocar-icone-dps-sinalDollar"></i></span>
+                    <h4 class="balance" id="balance"><span>$ </span><span id="balance-amount">0</span></h4>
+                </div>
             </div>
-            <div class="appInfo-expenses">
-                <h6 class="info-title">Despesas</h6>
-                <span class="expense-icon"><i class="colocar-icone-dps-credit-card"></i></span>
-                <h4 class="expense" id="expense"><span>$ </span><span id="expense-amount">0</span></h4>
-            </div>
-            <div class="appInfo-balance">
-                <h6 class="info-title">Balanço</h6>
-                <span class="balance-icon"><i class="colocar-icone-dps-sinalDollar"></i></span>
-                <h4 class="balance" id="balance"><span>$ </span><span id="balance-amount">0</span></h4>
-            </div>
-        </div>
-        <div class="container-expense">
-            <!-- expense feedback -->
-            <div class="expense-feedback">Feedback de Despesa</div>
+
+        </section>
+        <section class="expense-info">
+
             <!-- expense form -->
-            <form class="expense-form" id="expense-form">
+            <form class="expense-form container" id="expense-form">
                 <h5>Insira sua despesa</h5>
+                <!-- expense feedback -->
+                <div class="expense-feedback">Feedback de Despesa</div>
                 <div class="form-group">
                     <input type="text" class="expense-input" id="expense-input">
                 </div>
@@ -66,15 +71,27 @@
                 <!-- submit button -->
                 <button type="submit" class="expense-submit" id="expense-submit">Adicionar despesa</button>
             </form>
-        </div>
-        <div class="container-expenseList">
             <!-- expense list -->
-            <div class="expense-list" id="expense-list">
-                <div class="expense-list__info">
+            <div class="expense-list container" id="expense-list">
+                
+                <table>
+                    <thead>
+                        <tr>
+                            <th>Titúlo da Despesa</th>
+                            <th>Valor da Despesa</th>
+                            <th>Açoes</th>
+                        </tr>
+                    </thead>
+                    <tbody id="expenses">
+
+                    </tbody>
+                </table>
+                
+                <!-- <div class="expense-list__info">
                     <h5 class="list-item">Titúlo da Despesa</h5>
                     <h5 class="list-item">Valor da Despesa</h5>
                     <h5 class="list-item"></h5>
-                </div>
+                </div> -->
                 <!-- single expense -->
                 <!-- <div class="expense">
                     <div class="expense-item">
@@ -91,11 +108,12 @@
                 </div> -->
                 <!-- end of single expense-->
             </div>
-        </div>
-    </div>
- <!-- jquery -->
- <script src="js/jquery-3.5.1.js"></script>
- <script src="js/budget.js"></script>
+        </section>
+    </main>
+</body>
+<!-- jquery -->
+<script src="js/jquery-3.5.1.js"></script>
+<script src="js/budget.js"></script>
 </body>
 
 </html>
