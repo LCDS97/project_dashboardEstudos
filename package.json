@@ -1,0 +1,24 @@
+{
+  "name": "projeto_dashboardestudos",
+  "version": "1.0.0",
+  "description": "Dashboard for personal studies",
+  "main": "app.js",
+  "scripts": {
+    "start": "node bin/server.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/LCDS97/projeto_dashboardEstudos.git"
+  },
+  "author": "Lucas Conceição dos Santos",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/LCDS97/projeto_dashboardEstudos/issues"
+  },
+  "homepage": "https://github.com/LCDS97/projeto_dashboardEstudos#readme",
+  "dependencies": {
+    "ejs": "^3.1.6",
+    "express": "^4.17.1"
+  }
+}
