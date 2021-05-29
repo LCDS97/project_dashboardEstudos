@@ -7,6 +7,7 @@
 
 		<link rel="stylesheet" href="css/loading.css" />
 		<link rel="stylesheet" href="css/style.css" />
+		<link rel="stylesheet" href="css/modal.css" />
 
 		<!-- UIkit Files-->
 		<link
@@ -34,18 +35,32 @@
 			></span>
 		</section>
 		<div id="wrapper">
+			<!-- TASKS -->
 			<div class="navigation">
 				<div class="toggle">
 					<span></span>
 				</div>
+
 				<ul>
-					<li><a href="#">Home</a></li>
-					<li><a href="#">Criar Nova Tarefa</a></li>
+					<li><a href="/">Home</a></li>
+					<li><a id="addTask">Criar Nova Tarefa</a></li>
 					<li><a href="#">Criar Nova Lista</a></li>
 					<li><a href="#">Gerenciar Listas</a></li>
 					<li><a href="#">Exibir Tarefas</a></li>
 				</ul>
 			</div>
+			<!-- !TASKS -->
+			<!-- MODALS -->
+
+			<div id="addModal" class="modal">
+				<div class="modal-content">
+					<span class="close">&times;</span>
+					<p>Teste Modal</p>
+				</div>
+			</div>
+
+			<!-- !MODALS-->
+			<!-- NAV BAR-->
 			<div class="navbar">
 				<span>Dashboard Pessoal</span>
 
@@ -61,6 +76,8 @@
 					</div>
 				</div>
 			</div>
+			<!-- !NAV BAR-->
+			<!-- HOME CONTENTS -->
 			<div class="container">
 				<div class="card">
 					<span></span>
@@ -102,10 +119,11 @@
 					</div>
 				</div>
 			</div>
+			<!-- !HOME CONTENTS -->			
 		</div>
 
 		<script src="js/jquery-3.5.1.js"></script>
 		<script src="js/functions.js"></script>
-		<script src="tools/internet-speed/internet.js"></script>
+		<script src="js/home.js"></script>
 	</body>
 </html>
