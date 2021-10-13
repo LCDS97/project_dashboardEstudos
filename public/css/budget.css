@@ -1,14 +1,13 @@
 @import url("style.css");
 
 body {
-    background-color: rgb(66, 66, 66);
-
-  }
+  background-color: rgb(66, 66, 66);
+}
 
 main {
-  width:100%;
-  height:100vh;
-  padding:25px;
+  height: 100vh;
+  padding: 25px;
+  width: 100%;
 }
 
 main > section {
@@ -16,39 +15,39 @@ main > section {
 }
 
 .title {
-   background:red;
-   text-align: center;
-   font-size: 1.8rem;
-   text-transform: uppercase;
+  background: red;
+  font-size: 1.8rem;
+  justify-content: center;
+  text-align: center;
+  text-transform: uppercase;
 }
 
 .info {
- background:orange;
- display:flex;
- flex-direction: row;
- padding:25px;
+  background: orange;
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
 }
 
-
 .expense-info {
- background:blue;
- display:flex;
- flex-direction: row;
- padding:25px;
+  background: blue;
+  display: flex;
+  flex-direction: row;
+  padding: 25px;
 }
 
 .expense-list__info {
- background:purple;
- display: flex;
- flex-direction: row;
- justify-content: space-around;
+  background: purple;
+  display: flex;
+  flex-direction: row;
+  justify-content: space-around;
 }
 
-.expense-list__info>.list-item {
-  margin:5px;
+.expense-list__info > .list-item {
+  margin: 5px;
 }
 
-/* 
+/*
 .budget-mainTitle{
     color: var(--mainWhite)
 }
